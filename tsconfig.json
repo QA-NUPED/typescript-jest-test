@@ -15,7 +15,8 @@
     "sourceMap": true,                        /* Generates corresponding '.map' file. */
     // "outFile": "./",                       /* Concatenate and emit output to single file. */
     "outDir": "./dist",                       /* Redirect output structure to the directory. */
-    "rootDir": "./test",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+    //"rootDir": "./test/test-services",                      /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+    "rootDirs": ["test","test/test-services"],
     // "composite": true,                     /* Enable project compilation */
     // "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
     "removeComments": true,                   /* Do not emit comments to output. */
@@ -68,6 +69,6 @@
     "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
   },
   "include": [ 
-    "./test"
+    "./test", "./test/test-services"
   ]
 }
