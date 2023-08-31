@@ -30,7 +30,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: coverage
-        path: path/to/coverage/report # Substitua pelo caminho real do seu relatório de cobertura
+        path: C:\Users\gleidison.nascimento\typescript-jest-test\coverage\lcov-report # Substitua pelo caminho real do seu relatório de cobertura
 
 
 
