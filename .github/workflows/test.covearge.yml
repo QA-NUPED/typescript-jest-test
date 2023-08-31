@@ -22,16 +22,16 @@ jobs:
       run: npm install
 
     - name: Run tests and coverage
-      run: npm test --coverage
+      run: npm test --coverage --silent --noStackTrace --collectCoverageFrom=.coverage/lcov-report
       env:
         CI: true
 
     - name: Upload coverage report
+      id: coverage
       uses: actions/upload-artifact@v2
       with:
-        name: coverage
-        path: C:\Users\gleidison.nascimento\typescript-jest-test\coverage\lcov-report # Substitua pelo caminho real do seu relatório de cobertura
-
+        path: ${{ github.workspace }}/typescript-jest-test/coverage/lcov-report # Substitua pelo caminho real do seu relatório de cobertura
+        ACTIONS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
 
