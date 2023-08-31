@@ -19,19 +19,18 @@ jobs:
       uses: actions/setup-node@v2
 
     - name: Install dependencies
-      run: npm install
+      run: yarn
 
     - name: Run tests and coverage
-      run: npm run test --coverage
+      run: yarn jest --coverage
       env:
         CI: true
 
     - name: Upload coverage report
-      id: coverage
       uses: actions/upload-artifact@v2
       with:
         path: ${{ github.workspace }}./coverage/lcov.info # Substitua pelo caminho real do seu relatório de cobertura
-        ACTIONS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
 
 
 
