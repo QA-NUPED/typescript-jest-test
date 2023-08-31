@@ -31,7 +31,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         path: ${{ github.workspace }}/typescript-jest-test/coverage/lcov-report # Substitua pelo caminho real do seu relatório de cobertura
-        token: ${{ secrets.ACTIONS_TOKEN }}
+        ACTIONS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
 
