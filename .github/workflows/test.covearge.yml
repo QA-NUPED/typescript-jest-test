@@ -36,10 +36,16 @@ jobs:
     - name: Create PR comment
       id: create_comment
       run: |
-        COMMENT_CONTENT=$(cat /home/runner/work/typescript-jest-test/typescript-jest-test/coverage/clover.xml)  # Substitua pelo caminho real do relatório XML
+        COMMENT_CONTENT=$(cat /home/runner/work/typescript-jest-test/typescript-jest-test/coverage/clover.xml)
         echo "### Cobertura de Teste\n\`\`\`\n$COMMENT_CONTENT\n\`\`\`" > comment.md
       shell: bash
 
+    - name: Comment on PR
+      uses: softprops/action-gh-release@v1
+      with:
+        files: comment.md
+      env:
+        token: ${{ secrets.GITHUB_TOKEN }}
 
 
 
