@@ -27,16 +27,16 @@ jobs:
         CI: true
 
     - name: Upload coverage report
-      uses: actions/upload-artifact@v3
+      id: kover
+      uses: mi-kas/kover-report@v1
       with:
-        name: coverage
-        path: ${{ github.workspace }}/coverage/clover.xml # Substitua pelo caminho real do seu relatório de cobertura
-        token: ${{ secrets.GITHUB_TOKEN }}
-        title: Code Coverage
-        update-comment: true
-        min-coverage-overall: 10
-        min-coverage-changed-files: 80
-        coverage-counter-type: LINE
+          path: ${{ github.workspace }}coverage/clover.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Code Coverage
+          update-comment: true
+          min-coverage-overall: 10
+          min-coverage-changed-files: 80
+          coverage-counter-type: LINE
 
 
 
