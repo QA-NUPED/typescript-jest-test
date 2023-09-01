@@ -33,6 +33,13 @@ jobs:
         path: ${{ github.workspace }}/coverage/clover.xml # Substitua pelo caminho real do seu relatório de cobertura
         token: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Create PR comment
+      id: create_comment
+      run: |
+        COMMENT_CONTENT=$(cat /home/runner/work/typescript-jest-test/typescript-jest-test/coverage/clover.xml)  # Substitua pelo caminho real do relatório XML
+        echo "### Cobertura de Teste\n\`\`\`\n$COMMENT_CONTENT\n\`\`\`" > comment.md
+      shell: bash
+
 
 
 
