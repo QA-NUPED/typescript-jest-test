@@ -33,12 +33,19 @@ jobs:
         path: ${{ github.workspace }}/coverage/clover.xml # Substitua pelo caminho real do seu relatório de cobertura
         token: ${{ secrets.GITHUB_TOKEN }}
       
-    - name: Comment coverage report on PR
+    - name: Create PR comment
+      id: create_comment
+      run: |
+        COMMENT_CONTENT=${{ github.workspace }}/coverage/clover.xml
+        echo "### Cobertura de Teste\n\`\`\`\n$COMMENT_CONTENT\n\`\`\`" > comment.md
+      shell: bash
+
+    - name: Comment on PR
       uses: softprops/action-gh-release@v1
       with:
-        files: ${{ github.workspace }}/coverage/clover.xml  # Substitua pelo caminho real do relatório XML
+        files: comment.md
       env:
-        GH_RELEASE_TAG: coverage-report
+        token: ${{ secrets.GITHUB_TOKEN }}
 
 
 
