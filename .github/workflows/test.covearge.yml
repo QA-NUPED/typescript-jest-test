@@ -33,3 +33,9 @@ jobs:
         path: ${{ github.workspace }}/coverage/coverage-final.json # Substitua pelo caminho real do seu relatório de cobertura
         token: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Coverage report PR
+      uses: mshick/add-pr-comment@v2
+      with:
+        message-path: |
+           ${{ github.workspace }}/coverage/coverage-final.json
+
