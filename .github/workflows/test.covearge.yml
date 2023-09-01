@@ -33,21 +33,6 @@ jobs:
         path: ${{ github.workspace }}/coverage/clover.xml # Substitua pelo caminho real do seu relatório de cobertura
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Create PR comment
-      uses: actions/github-script@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        script: |
-          const fs = require('fs');
-          const path = '${{ github.workspace }}/coverage/clover.xml';
-          const content = fs.readFileSync(path, 'utf8');
-          
-          const octokit = context.github;
-          octokit.issues.createComment({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: `### Cobertura de Teste\n\`\`\`\n${content}\n\`\`\``
-          });
+    
 
 

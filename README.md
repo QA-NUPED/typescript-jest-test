@@ -55,3 +55,5 @@ Mais antes certifique que sua pasta .vscode esteja configurado desta maneira (np
 Basta abrir a pasta e em "typescript":
 
 coloque desta forma "npx ts-node --files --transpile-only"
+
+[![Coverage Status](https://coveralls.io/repos/github/GleidisonQADEV/typescript-jest-test/badge.svg?branch=main)](https://coveralls.io/github/GleidisonQADEV/typescript-jest-test?branch=main)
