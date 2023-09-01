@@ -32,8 +32,3 @@ jobs:
         name: coverage
         path: ${{ github.workspace }}/coverage/clover.xml # Substitua pelo caminho real do seu relatório de cobertura
         token: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Coverage Diff
-      uses: greatwizard/coverage-diff-action@v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
