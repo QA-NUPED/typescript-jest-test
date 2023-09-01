@@ -37,5 +37,6 @@ jobs:
       uses: codecov/codecov-action@v2
       with:
         files: ${{ github.workspace }}/coverage/clover.xml
+        token: ${{ secrets.GITHUB_TOKEN }}
 
 
