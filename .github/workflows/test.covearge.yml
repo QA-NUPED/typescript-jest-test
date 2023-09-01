@@ -33,4 +33,7 @@ jobs:
         path: ${{ github.workspace }}/coverage/clover.xml # Substitua pelo caminho real do seu relatório de cobertura
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    
+    - name: Coverage report
+      uses: romeovs/lcov-reporter-action@v0.2.16
+      with:
+        lcov-file: ./coverage/lcov.info
