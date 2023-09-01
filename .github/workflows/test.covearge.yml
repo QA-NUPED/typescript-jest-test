@@ -31,7 +31,7 @@ jobs:
       run: yarn
 
     - name: Run tests and coverage
-      run: yarn jest --config --coverage --ci
+      run: yarn jest --coverage --ci
 
     - name: Coverage report
       uses: romeovs/lcov-reporter-action@v0.2.16
