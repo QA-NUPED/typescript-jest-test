@@ -22,7 +22,7 @@ jobs:
       run: yarn
 
     - name: Run tests and coverage
-      run: yarn jest --coverage
+      run: yarn jest --coverage ----collectCoverageFrom=.coverage/clover.xml
       env:
         CI: true
 
@@ -30,12 +30,12 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: coverage
-        path: ${{ github.workspace }}/coverage/coverage-final.json # Substitua pelo caminho real do seu relatório de cobertura
+        path: ${{ github.workspace }}/coverage/clover.xml # Substitua pelo caminho real do seu relatório de cobertura
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Coverage report PR
-      uses: mshick/add-pr-comment@v2
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v2
       with:
-        message-path: |
-           ${{ github.workspace }}/coverage/coverage-final.json
+        files: ./clover.xml
+
 
