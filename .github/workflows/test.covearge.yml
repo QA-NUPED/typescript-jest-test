@@ -1,11 +1,11 @@
 name: Test and Coverage
 
 on:
- push:
-   branches:
+  push:
+    branches:
      - main
- pull_request:
-   types: [opened, synchronize, reopened]
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 permissions:
   id-token: write
@@ -16,6 +16,9 @@ permissions:
 jobs:
   test-and-report:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        src: [classes, services]
     
     steps:
     - name: Checkout code
@@ -28,7 +31,10 @@ jobs:
       run: yarn
 
     - name: Run tests and coverage
-      run: yarn jest --watch --coverage --ci 
+      run: yarn jest --watch --coverage --ci
+      env:
+        CURRENT_DOMAIN: ${{ matrix.domain }}
+        TEST_PATH: ${{ matrix.src == 'src\/(?!classes)' || 'src/classes/$CURRENT_DOMAIN' }}
 
     - name: Coverage report
       uses: romeovs/lcov-reporter-action@v0.2.16
