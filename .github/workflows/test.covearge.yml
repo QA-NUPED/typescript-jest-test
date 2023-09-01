@@ -34,18 +34,20 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Create PR comment
-      id: create_comment
-      run: |
-        COMMENT_CONTENT=$(cat /home/runner/work/typescript-jest-test/typescript-jest-test/coverage/clover.xml)
-        echo "### Cobertura de Teste\n\`\`\`\n$COMMENT_CONTENT\n\`\`\`" > comment.md
-      shell: bash
-
-    - name: Comment on PR
-      uses: softprops/action-gh-release@v1
+      uses: actions/github-script@v4
       with:
-        files: comment.md
-      env:
         token: ${{ secrets.GITHUB_TOKEN }}
-
+        script: |
+          const fs = require('fs');
+          const path = '${{ github.workspace }}/coverage/clover.xml';
+          const content = fs.readFileSync(path, 'utf8');
+          
+          const octokit = context.github;
+          octokit.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: `### Cobertura de Teste\n\`\`\`\n${content}\n\`\`\``
+          });
 
 
