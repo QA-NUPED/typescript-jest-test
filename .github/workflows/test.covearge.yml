@@ -7,6 +7,12 @@ on:
  pull_request:
    types: [opened, synchronize, reopened]
 
+permissions:
+  id-token: write
+  contents: read
+  issues: write
+  pull-requests: write
+
 jobs:
   test-and-report:
     runs-on: ubuntu-latest
@@ -21,23 +27,20 @@ jobs:
     - name: Install dependencies
       run: yarn
 
-    # - name: Run tests and coverage
-    #   run: yarn jest --coverage
-    #   env:
-    #     CI: true
+    - name: Run tests and coverage
+      run: yarn jest --coverage
+      env:
+        CI: true
 
-    # - name: Upload coverage report
-    #   uses: actions/upload-artifact@v3
-    #   with:
-    #     name: coverage
-    #     path: ${{ github.workspace }}/coverage/clover.xml # Substitua pelo caminho real do seu relatório de cobertura
-    #     token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v3
+      with:
+        name: coverage
+        path: ${{ github.workspace }}/coverage/clover.xml # Substitua pelo caminho real do seu relatório de cobertura
+        token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Coverage
-      uses: abolkog/jest-pr-code-coverage@v1.1.1
-      with: 
-        test-script: npm test
-        min-threshold: 50
-
-
-
+    - name: Coverage report
+      uses: romeovs/lcov-reporter-action@v0.2.16
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        lcov-file: ./coverage/lcov.info
