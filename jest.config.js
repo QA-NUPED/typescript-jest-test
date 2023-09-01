@@ -3,7 +3,24 @@ module.exports = {
   testEnvironment: 'node',
   coverageThreshold: {
     global: {
+      branches: 100,
+      functions: 100,
       lines: 100,
+      statements: 100,
+    },
+    './src/classes/': {
+      branches: 100,
+      statements: 100,
+    },
+    './src/services/': {
+      branches: 100,
+      statements: 100,
+    },
+    './src/classes/**/*.js': {
+      statements: 100,
+    },
+    './src/services/**/*.js': {
+      statements: 100,
     },
   },
 };
