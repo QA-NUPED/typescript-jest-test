@@ -16,10 +16,7 @@ permissions:
 jobs:
   test-and-report:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        src: [classes, services]
-    
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
