@@ -26,11 +26,15 @@ jobs:
 
     - name: Run tests and coverage
       run: yarn jest --coverage
+      continue-on-error: true
 
     - name: Coverage report
       uses: romeovs/lcov-reporter-action@v0.2.16
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         lcov-file: ./coverage/lcov.info
+
+    - name: Run lock coverage
+      run: yarn jest --config --coverage --ci
 
         
