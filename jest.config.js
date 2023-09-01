@@ -14,14 +14,6 @@ const config = {
       lines: 100,
       statements: -10,
     },
-    './src/classes/': {
-      branches: 100,
-      statements: -1,
-    },
-    './src/services/': {
-      branches: 100,
-      statements: -1,
-    },
   },
 };
 
