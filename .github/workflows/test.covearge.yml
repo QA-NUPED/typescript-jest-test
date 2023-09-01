@@ -26,16 +26,17 @@ jobs:
       env:
         CI: true
 
-    - name: Upload coverage report
-      uses: actions/upload-artifact@v3
-      with:
-        name: coverage
-        path: ${{ github.workspace }}/coverage/clover.xml # Substitua pelo caminho real do seu relatório de cobertura
-        token: ${{ secrets.GITHUB_TOKEN }}
+    # - name: Upload coverage report
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: coverage
+    #     path: ${{ github.workspace }}/coverage/clover.xml # Substitua pelo caminho real do seu relatório de cobertura
+    #     token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v2
-      with:
-        files: ${{ github.workspace }}/coverage/clover.xml
+    - name: Coverage
+      uses: abolkog/jest-pr-code-coverage@v1.1.1
+      with: 
+        min-threshold: 50
+
 
 
