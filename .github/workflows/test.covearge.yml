@@ -34,18 +34,13 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
       
     - name: Create PR comment
-      id: create_comment
-      run: |
-        COMMENT_CONTENT=${{ github.workspace }}/coverage/clover.xml
-        echo "### Cobertura de Teste\n\`\`\`\n$COMMENT_CONTENT\n\`\`\`" > comment.md
-      shell: bash
-
-    - name: Comment on PR
-      uses: softprops/action-gh-release@v1
+      uses: peter-evans/create-pull-request-comment@v1
       with:
-        files: comment.md
-      env:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        body: |
+          ### Cobertura de Teste
+          ```
+          ${{ steps.report.outputs.artifacts.coverage.paths }}
+          ```
 
 
 
