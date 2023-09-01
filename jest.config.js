@@ -16,10 +16,7 @@ module.exports = {
       branches: 100,
       statements: 100,
     },
-    './src/classes/**/*.js': {
-      statements: 100,
-    },
-    './src/services/**/*.js': {
+    './src/**/**/*.js': {
       statements: 100,
     },
   },
