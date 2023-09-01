@@ -37,7 +37,4 @@ jobs:
       uses: abolkog/jest-pr-code-coverage@v1.1.1
       with: 
         test-script: npm test
-        min-threshold: 50
-
-
-
+        min-threshold: 100
