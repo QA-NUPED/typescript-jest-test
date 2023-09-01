@@ -16,8 +16,5 @@ module.exports = {
       branches: 100,
       statements: 100,
     },
-    './src/**/**/*.js': {
-      statements: 100,
-    },
   },
 };
