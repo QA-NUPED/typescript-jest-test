@@ -1,4 +1,4 @@
-import { IndividualCustomer, EnterpriseCustomer } from '../src/classes/customer';
+import { IndividualCustomer, EnterpriseCustomer } from '../../src/classes/customer';
 
 const createIndividualCustomer = (
   firstName: string,

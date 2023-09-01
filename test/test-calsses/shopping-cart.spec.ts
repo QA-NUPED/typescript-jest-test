@@ -1,6 +1,6 @@
-import { ShoppingCart } from '../src/classes/shopping-cart';
-import { Discount } from '../src/classes/discount';
-import { CartItem } from '../src/classes/interfaces/cart-item';
+import { ShoppingCart } from '../../src/classes/shopping-cart';
+import { Discount } from '../../src/classes/discount';
+import { CartItem } from '../../src/classes/interfaces/cart-item';
 
 const createSut = () => {
   const discountMock = createDiscountMock();
