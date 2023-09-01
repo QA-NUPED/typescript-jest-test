@@ -22,7 +22,7 @@ jobs:
       run: yarn
 
     - name: Run tests and coverage
-      run: yarn jest --coverage ----collectCoverageFrom=.coverage/clover.xml
+      run: yarn jest --coverage
       env:
         CI: true
 
