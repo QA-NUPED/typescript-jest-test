@@ -32,15 +32,6 @@ jobs:
         name: coverage
         path: ${{ github.workspace }}/coverage/clover.xml # Substitua pelo caminho real do seu relatório de cobertura
         token: ${{ secrets.GITHUB_TOKEN }}
-      
-    - name: Create PR comment
-      uses: peter-evans/create-pull-request-comment@v1
-      with:
-        body: |
-          ### Cobertura de Teste
-          ```
-          ${{ steps.report.outputs.artifacts.coverage.paths }}
-          ```
 
 
 
