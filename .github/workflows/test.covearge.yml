@@ -31,10 +31,7 @@ jobs:
       run: yarn
 
     - name: Run tests and coverage
-      run: yarn jest $TEST_PATH --coverage --ci
-      env:
-        CURRENT_DOMAIN: ${{ matrix.domain }}
-        TEST_PATH: ${{ matrix.src == 'src\/(?!classes)' || 'src/classes/$CURRENT_DOMAIN' }}
+      run: yarn jest --config --coverage --ci
 
     - name: Coverage report
       uses: romeovs/lcov-reporter-action@v0.2.16
