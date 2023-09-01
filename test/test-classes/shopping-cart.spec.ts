@@ -63,4 +63,16 @@ describe('ShoppingCart', () => {
     expect(sut.items.length).toBe(0);
     expect(sut.isEmpty()).toBe(true);
   });
+
+  it('should remove products', () => {
+    //arrange
+    const { sut } = createSutWithProducts();
+    expect(sut.items.length).toBe(2);
+    //act
+    sut.removeItem(1);
+    expect(sut.items.length).toBe(1);
+    //assert
+    sut.removeItem(0);
+    expect(sut.isEmpty()).toBe(true);
+  });
 });
