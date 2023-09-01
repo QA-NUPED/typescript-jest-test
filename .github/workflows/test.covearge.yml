@@ -30,6 +30,6 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: coverage
-        path: ${{ github.workspace }}/coverage/clover.xml # Substitua pelo caminho real do seu relatório de cobertura
+        path: ${{ github.workspace }}/coverage/coverage-final.json # Substitua pelo caminho real do seu relatório de cobertura
         token: ${{ secrets.GITHUB_TOKEN }}
 
