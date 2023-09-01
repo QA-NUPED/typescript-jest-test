@@ -31,7 +31,7 @@ jobs:
       run: yarn
 
     - name: Run tests and coverage
-      run: yarn jest $TEST_PATH --watch --coverage --ci
+      run: yarn jest $TEST_PATH --coverage --ci
       env:
         CURRENT_DOMAIN: ${{ matrix.domain }}
         TEST_PATH: ${{ matrix.src == 'src\/(?!classes)' || 'src/classes/$CURRENT_DOMAIN' }}
