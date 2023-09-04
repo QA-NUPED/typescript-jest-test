@@ -37,4 +37,12 @@ jobs:
     - name: Run lock coverage
       run: yarn jest --config --coverage --ci
 
+    - name: Test Report
+      uses: dorny/test-reporter@v1
+      if: success() || failure()    # run this step even if previous step failed
+      with:
+        name: JEST Tests            # Name of the check run which will be created
+        path: ./coverage/clover.xml    # Path to test results
+        reporter: jest-junit 
+
         
