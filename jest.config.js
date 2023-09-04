@@ -9,7 +9,8 @@ const config = {
     },
     
     './src/classes/': {
-      lines: 20,
+      branches: 98,
+      statements: 40,
     },
   },
 };
