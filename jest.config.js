@@ -12,6 +12,9 @@ const config = {
     './src/classes/**/*.ts': {
       statements: 100,
     },
+    './src/services/**/*.ts': {
+      statements: 100,
+    },
   },
 };
 
