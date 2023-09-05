@@ -1,0 +1,40 @@
+import { ShoppingCart } from '../../src/classes/shopping-cart';
+import { Discount } from '../../src/classes/discount';
+import { CartItem } from '../../src/classes/interfaces/cart-item';
+
+const createSut = () => {
+  const discountMock = createDiscountMock();
+  const sut = new ShoppingCart(discountMock);
+  return { sut, discountMock };
+};
+
+const createDiscountMock = () => {
+  class DiscountMock extends Discount {}
+  return new DiscountMock();
+};
+
+const createCartItem = (name: string, price: number) => {
+  class CartItemMock implements CartItem {
+    constructor(public name: string, public price: number) {}
+  }
+
+  return new CartItemMock(name, price);
+};
+
+const createSutWithProducts = () => {
+  const { sut, discountMock } = createSut();
+  const cartItem1 = createCartItem('Camiseta', 40);
+  const cartItem2 = createCartItem('Caneta', 1);
+  sut.addItem(cartItem1);
+  sut.addItem(cartItem2);
+  return { sut, discountMock };
+};
+
+describe('ShoppingCart', () => {
+  it('should be an empty cart when no product is added', () => {
+    //act
+    const { sut } = createSut();
+    //assert
+    expect(sut.isEmpty()).toBe(true);
+  });
+});
