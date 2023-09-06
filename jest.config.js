@@ -7,10 +7,13 @@ const config = {
     global: {
       functions: 100,
       lines: 100,
-      statements: 85,
+      statements: 100,
     },
     './src/classes/': {
-      statements: 84,
+      statements: 100,
+    },
+    './src/services/': {
+      statements: 100,
     },
     './src/classes/**/*.ts': {
       statements: 100,
