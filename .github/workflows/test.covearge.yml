@@ -25,7 +25,7 @@ jobs:
       run: npm install
 
     - name: Run tests and coverage
-      run: npm test:coverage
+      run: npm test --collectCoverage
       continue-on-error: true
 
     - name: Coverage report
