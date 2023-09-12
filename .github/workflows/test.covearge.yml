@@ -25,7 +25,7 @@ jobs:
       run: npm install
 
     - name: Run tests and coverage
-      run: npm jest --coverage --silent --noStackTrace
+      run: npm test:coverage
       continue-on-error: true
 
     - name: Coverage report
