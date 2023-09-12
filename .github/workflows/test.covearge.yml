@@ -22,10 +22,10 @@ jobs:
       uses: actions/setup-node@v3
 
     - name: Install dependencies
-      run: yarn
+      run: npm install
 
     - name: Run tests and coverage
-      run: yarn jest --coverage
+      run: npm test --coverage
       continue-on-error: true
 
     - name: Coverage report
